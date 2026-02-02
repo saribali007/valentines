@@ -14,8 +14,8 @@ body {
   /* IMAGE FIRST, VERY LIGHT PINK TINT */
   background-image:
     linear-gradient(
-      rgba(255, 235, 242, 0.55),
-      rgba(255, 235, 242, 0.55)
+      rgba(255, 235, 242, 0.38),
+      rgba(255, 235, 242, 0.38)
     ),
     url("images/background.jpg");
 
@@ -34,7 +34,7 @@ body {
 .login-card {
   background: #ffffff;
 
-  padding: 48px 52px;
+  padding: 62px 52px;
   border-radius: 28px;
   text-align: center;
 
@@ -45,6 +45,7 @@ body {
 
   /* TRUE LEFT PLACEMENT */
   margin-left: 6%;
+  margin-top: -30px;
 }
 
 /* TITLE */
