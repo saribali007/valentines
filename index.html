@@ -5,25 +5,38 @@
   <title>For My Queen 💖</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body class="login-bg">
 
-  <div class="login-box">
+  <div class="login-card">
     <h1>🔐 Enter the Secret Password</h1>
-    <input type="password" id="password" placeholder="Password">
-    <button onclick="checkPassword()">Enter</button>
-    <p id="error"></p>
+    <p class="hint">Only my Queen knows this…</p>
+
+    <input 
+      type="password" 
+      id="password" 
+      placeholder="Type gently… 💗"
+    >
+
+    <button onclick="checkPassword()">Enter 💖</button>
+
+    <p id="error" class="error-text"></p>
   </div>
 
 <script>
 function checkPassword() {
   const pass = document.getElementById("password").value;
+  const error = document.getElementById("error");
+
   if (pass === "slubbyservesqueen") {
     window.location.href = "question.html";
   } else {
-    document.getElementById("error").innerText = "Wrong password 😤";
+    error.innerText = "❌ Wrong password… play the scavenger hunt to unlock it 😌";
+    error.classList.add("shake");
   }
 }
 </script>
 
 </body>
 </html>
+
