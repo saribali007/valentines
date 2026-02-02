@@ -8,7 +8,8 @@
 }
 
 /* BODY + BACKGROUND (THIS WILL WORK) */
-body {
+<body>  
+{
   min-height: 100vh;
   background-image:
     linear-gradient(
