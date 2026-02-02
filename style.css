@@ -139,121 +139,15 @@ body.login-bg {
 }
 
 /* =========================
-   QUESTION / VALENTINE PAGE
-   (SAFE – DOES NOT TOUCH LOGIN)
-========================= */
-
-.question-page {
-    min-height: 100vh;
-    background: linear-gradient(135deg, #1a1a1a, #2b2b2b);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 30px;
-}
-
-.question-page .card {
-    background: rgba(255, 255, 255, 0.08);
-    border-radius: 20px;
-    max-width: 900px;
-    width: 100%;
-    display: flex;
-    gap: 30px;
-    padding: 25px;
-    backdrop-filter: blur(10px);
-}
-
-.question-page .photo {
-    width: 45%;
-    max-height: 420px;
-    border-radius: 15px;
-    object-fit: cover;
-}
-
-.question-page .content {
-    flex: 1;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.question-page h1 {
-    color: #ff4d6d;
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-}
-
-.question-page h2 {
-    font-size: 1.6rem;
-    margin-bottom: 15px;
-}
-
-.question-page p {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    margin-bottom: 30px;
-    color: #f2f2f2;
-}
-
-.question-page .buttons {
-    display: flex;
-    gap: 20px;
-}
-
-.question-page button {
-    padding: 14px 32px;
-    font-size: 1rem;
-    border-radius: 30px;
-    border: none;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.question-page .yes {
-    background: #ff4d6d;
-    color: white;
-}
-
-.question-page .yes:hover {
-    background: #ff1f4b;
-    transform: scale(1.1);
-}
-
-.question-page .no {
-    background: white;
-    color: #333;
-}
-
-.question-page .no:hover {
-    transform: translateX(20px);
-}
-
-/* Mobile */
-@media (max-width: 768px) {
-    .question-page .card {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .question-page .photo {
-        width: 100%;
-    }
-
-    .question-page .buttons {
-        justify-content: center;
-    }
-}
-/* =========================
-   QUESTION PAGE – OPTION A
-   Cinematic / Full Screen
+   CINEMATIC VALENTINE PAGE
 ========================= */
 
 .question-page {
     margin: 0;
+    background: black;
 }
 
-/* Full screen image */
+/* Full-screen hero */
 .question-page .hero {
     position: relative;
     min-height: 100vh;
@@ -263,79 +157,96 @@ body.login-bg {
     background-repeat: no-repeat;
 }
 
-/* Dark cinematic overlay */
-.question-page .overlay {
+/* Soft cinematic overlay */
+.question-page .hero-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(
-        rgba(0,0,0,0.55),
-        rgba(0,0,0,0.75)
+    background: radial-gradient(
+        circle at center,
+        rgba(0,0,0,0.35),
+        rgba(0,0,0,0.85)
     );
 }
 
-/* Text container */
-.question-page .text {
+/* Text block */
+.question-page .hero-text {
     position: relative;
     z-index: 2;
     min-height: 100vh;
-    max-width: 700px;
-    padding: 60px;
+    max-width: 640px;
+    padding: 80px 70px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    color: #f5f5f5;
+    color: #f6f6f6;
 }
 
-/* Headings */
+/* Typography */
 .question-page h1 {
-    font-size: 3rem;
-    color: #ff4d6d;
-    margin-bottom: 10px;
+    font-size: 3.4rem;
+    color: #ff5a76;
+    margin-bottom: 12px;
+    letter-spacing: 1px;
 }
 
 .question-page h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-    font-weight: normal;
+    font-size: 2.1rem;
+    font-weight: 400;
+    margin-bottom: 22px;
 }
 
 .question-page p {
-    font-size: 1.2rem;
-    line-height: 1.8;
-    margin-bottom: 40px;
+    font-size: 1.25rem;
+    line-height: 1.9;
     color: #eaeaea;
+    margin-bottom: 48px;
 }
 
 /* Buttons */
-.question-page .buttons {
+.question-page .hero-buttons {
     display: flex;
-    gap: 20px;
+    gap: 22px;
 }
 
 .question-page button {
-    padding: 14px 34px;
-    font-size: 1.1rem;
-    border-radius: 40px;
+    padding: 16px 40px;
+    border-radius: 50px;
+    font-size: 1.15rem;
     border: none;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.35s ease;
 }
 
 /* Yes */
 .question-page .yes {
-    background: #ff4d6d;
+    background: #ff5a76;
     color: white;
 }
 
 .question-page .yes:hover {
     transform: scale(1.08);
-    background: #ff1f4b;
+    background: #ff2f55;
 }
 
 /* No */
 .question-page .no {
-    background: rgba(255,255,255,0.9);
+    background: rgba(255,255,255,0.85);
     color: #222;
 }
 
 .question-page .no:hover {
+    transform: translateX(18px);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .question-page .hero-text {
+        padding: 60px 30px;
+        text-align: center;
+    }
+
+    .question-page .hero-buttons {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+}
