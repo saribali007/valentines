@@ -289,4 +289,15 @@ body.question-page {
     flex-direction: column;
   }
 }
+/* =========================
+   FIX CLICK BLOCKING
+========================= */
 
+.question-page::before {
+  pointer-events: none;
+}
+
+.buttons {
+  position: relative;
+  z-index: 9999;
+}
