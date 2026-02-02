@@ -244,3 +244,98 @@ body.login-bg {
         justify-content: center;
     }
 }
+/* =========================
+   QUESTION PAGE – OPTION A
+   Cinematic / Full Screen
+========================= */
+
+.question-page {
+    margin: 0;
+}
+
+/* Full screen image */
+.question-page .hero {
+    position: relative;
+    min-height: 100vh;
+    background-image: url("images/proposal.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Dark cinematic overlay */
+.question-page .overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        rgba(0,0,0,0.55),
+        rgba(0,0,0,0.75)
+    );
+}
+
+/* Text container */
+.question-page .text {
+    position: relative;
+    z-index: 2;
+    min-height: 100vh;
+    max-width: 700px;
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #f5f5f5;
+}
+
+/* Headings */
+.question-page h1 {
+    font-size: 3rem;
+    color: #ff4d6d;
+    margin-bottom: 10px;
+}
+
+.question-page h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    font-weight: normal;
+}
+
+.question-page p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 40px;
+    color: #eaeaea;
+}
+
+/* Buttons */
+.question-page .buttons {
+    display: flex;
+    gap: 20px;
+}
+
+.question-page button {
+    padding: 14px 34px;
+    font-size: 1.1rem;
+    border-radius: 40px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Yes */
+.question-page .yes {
+    background: #ff4d6d;
+    color: white;
+}
+
+.question-page .yes:hover {
+    transform: scale(1.08);
+    background: #ff1f4b;
+}
+
+/* No */
+.question-page .no {
+    background: rgba(255,255,255,0.9);
+    color: #222;
+}
+
+.question-page .no:hover {
