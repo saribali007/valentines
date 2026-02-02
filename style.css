@@ -63,23 +63,23 @@ body.login-page {
   margin-bottom: 30px;
 }
 
-/* INPUT */
 .login-card input {
   width: 100%;
-  padding: 14px 18px;
+  padding: 14px 26px; /* more horizontal space */
 
   border-radius: 30px;
   border: none;
   outline: none;
 
   font-family: 'Poppins', sans-serif;
-  font-size: 0.95rem;
+  font-size: 0.88rem; /* slightly smaller text */
 
-  margin-bottom: 20px;
+  margin-bottom: 22px;
 
   background: #fdfdfd;
   box-shadow: inset 0 5px 12px rgba(0, 0, 0, 0.1);
 }
+
 
 /* BUTTON */
 .login-card button {
