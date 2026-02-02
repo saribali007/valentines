@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Proposal 💍</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="proposal-page">
+
+  <!-- Background image container -->
+  <div class="bg"></div>
+
+  <!-- Main content -->
+  <div class="floating-content">
+    <h1>Haniya ❤️</h1>
+    <h2>Will you be my Valentine?</h2>
+
+    <p>
+      From that moment to every moment after…  
+      I still choose you. Every single time.
+    </p>
+
+    <div class="buttons">
+      <button id="yesBtn">Yes 💖</button>
+      <button id="noBtn">No 😢</button>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    // YES → fireworks page
+    document.getElementById("yesBtn").addEventListener("click", () => {
+      window.location.href = "fireworks.html";
+    });
+
+    // NO → playful vanish
+    document.getElementById("noBtn").addEventListener("click", () => {
+      const noBtn = document.getElementById("noBtn");
+      noBtn.classList.add("burst");
+    });
+  </script>
+
+</body>
+</html>
