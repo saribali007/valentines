@@ -18,7 +18,7 @@ body.login-bg {
       rgba(255, 220, 235, 0.25),
       rgba(255, 220, 235, 0.25)
     ),
-    url("./images/background.jpg");
+    url("/valentines/images/background.jpg");
 
   background-size: cover;
   background-position: center;
@@ -30,6 +30,7 @@ body.login-bg {
 
   font-family: 'Playfair Display', serif;
 }
+
 
 /* =========================
    LOGIN CARD
