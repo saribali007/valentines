@@ -150,14 +150,18 @@ body.login-bg {
 
 /* FULL BACKGROUND IMAGE */
 .question-page .bg {
-  position: fixed;
-  inset: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 65vh;          /* 👈 controls “shortness” */
   background-image: url("/valentines/images/proposal.jpg");
-  background-size: cover;
-  background-position: center;
-  filter: blur(2px) brightness(0.8);
-  transform: scale(1.05);
+  background-size: contain;   /* 👈 NO CROPPING */
+  background-position: center top;
+  background-repeat: no-repeat;
   z-index: -2;
+}
+
 }
 
 /* SOFT OVERLAY */
