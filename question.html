@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>For Haniya ❤️</title>
@@ -6,15 +8,12 @@
 
 <body class="question-page">
 
-  <!-- IMAGE SECTION -->
-  <div class="question-hero">
-    <div class="overlay"></div>
-  </div>
+  <!-- BACKGROUND IMAGE -->
+  <div class="bg"></div>
 
   <!-- CONTENT -->
   <div class="floating-content">
     <h1>Haniya ❤️</h1>
-
     <h2>Will you be my Valentine?</h2>
 
     <p>
@@ -23,11 +22,6 @@
     </p>
 
     <div class="buttons">
-      <div class="buttons">
-        <button id="yesBtn">Yes 💕</button>
-        <button id="noBtn">No 😒</button>
-      </div>
-
       <button id="yesBtn">Yes 💕</button>
       <button id="noBtn">No 😒</button>
     </div>
@@ -35,114 +29,93 @@
 
   <!-- SCRIPT -->
   <script>
-    const noBtn = document.getElementById("noBtn");
-    const yesBtn = document.getElementById("yesBtn");
-
-    let clicks = 0;
-    let noAlive = true;
-
-    const messages = [
-      "what the fuck?",
-      "you for real?",
-      "nah 😒",
-      "go press YES",
-      "WRONG BUTTON",
-      "LAST WARNING 😡"
-      "last warning 😡",
-      "stop playing",
-      "ok bye 💥"
-    ];
-
-    function clamp(value, min, max) {
-      return Math.min(Math.max(value, min), max);
-    }
-
-    function setFixedPosition(el) {
-      const rect = el.getBoundingClientRect();
-      el.style.position = "fixed";
-      el.style.left = `${rect.left}px`;
-      el.style.top = `${rect.top}px`;
-      el.classList.add("free");
-    }
-
-    function ensureFree(el) {
-      if (!el.classList.contains("free")) {
-        setFixedPosition(el);
-      }
-    }
-
-    function randomMove(el, range = 160) {
-      const x = Math.random() * range - range / 2;
-      const y = Math.random() * range - range / 2;
-      el.style.transform = `translate(${x}px, ${y}px)`;
-      ensureFree(el);
-      const rect = el.getBoundingClientRect();
-      const padding = 16;
-      const x = rect.left + (Math.random() * range - range / 2);
-      const y = rect.top + (Math.random() * range - range / 2);
-      const clampedX = clamp(x, padding, window.innerWidth - rect.width - padding);
-      const clampedY = clamp(y, padding, window.innerHeight - rect.height - padding);
-      el.style.left = `${clampedX}px`;
-      el.style.top = `${clampedY}px`;
-    }
-
     document.addEventListener("DOMContentLoaded", () => {
-      requestAnimationFrame(() => {
-        setFixedPosition(yesBtn);
-        setFixedPosition(noBtn);
+
+      const yesBtn = document.getElementById("yesBtn");
+      const noBtn  = document.getElementById("noBtn");
+
+      let clicks = 0;
+      let noAlive = true;
+
+      const messages = [
+        "what the fuck?",
+        "you for real?",
+        "nah 😒",
+        "go press YES",
+        "WRONG BUTTON",
+        "LAST WARNING 😡",
+        "STOP IT",
+        "ok bye 💥"
+      ];
+
+      function clamp(value, min, max) {
+        return Math.min(Math.max(value, min), max);
+      }
+
+      function moveRandom(el, range = 180) {
+        const rect = el.getBoundingClientRect();
+        const padding = 20;
+
+        const x = clamp(
+          rect.left + (Math.random() * range - range / 2),
+          padding,
+          window.innerWidth - rect.width - padding
+        );
+
+        const y = clamp(
+          rect.top + (Math.random() * range - range / 2),
+          padding,
+          window.innerHeight - rect.height - padding
+        );
+
+        el.style.position = "fixed";
+        el.style.left = `${x}px`;
+        el.style.top = `${y}px`;
+      }
+
+      /* NO BUTTON LOGIC */
+      noBtn.addEventListener("click", () => {
+        if (!noAlive) return;
+
+        moveRandom(noBtn);
+
+        if (clicks < messages.length) {
+          noBtn.textContent = messages[clicks];
+        }
+
+        const red = Math.min(255, 120 + clicks * 30);
+        noBtn.style.background = `rgb(${red}, 40, 40)`;
+        noBtn.style.color = "white";
+
+        clicks++;
+
+        if (clicks === messages.length) {
+          noAlive = false;
+          noBtn.classList.add("burst");
+          setTimeout(() => noBtn.remove(), 600);
+        }
       });
-    });
 
-    window.addEventListener("resize", () => {
-      ensureFree(yesBtn);
-      ensureFree(noBtn);
-    });
-
-    // NO button logic
-    noBtn.addEventListener("click", () => {
-      if (!noAlive) return;
-
-      randomMove(noBtn);
-
-      if (clicks < messages.length) {
-        noBtn.textContent = messages[clicks];
+      /* YES RUNS AWAY UNTIL NO IS DEAD */
+      function fleeYes() {
+        if (!noAlive) return;
+        moveRandom(yesBtn, 160);
       }
 
-      const red = Math.min(255, 100 + clicks * 35);
-      noBtn.style.background = `rgb(${red}, 40, 40)`;
-      noBtn.style.color = "white";
+      yesBtn.addEventListener("mouseenter", fleeYes);
+      yesBtn.addEventListener("mousemove", fleeYes);
+      yesBtn.addEventListener("touchstart", fleeYes, { passive: true });
 
-      clicks++;
+      /* YES CLICK */
+      yesBtn.addEventListener("click", (e) => {
+        if (noAlive) {
+          e.preventDefault();
+          fleeYes();
+          return;
+        }
+        window.location.href = "fireworks.html";
+      });
 
-      if (clicks === messages.length) {
-        noAlive = false;
-        noBtn.classList.add("burst");
-        setTimeout(() => noBtn.remove(), 600);
-      }
-    });
-
-    // YES runs away until NO is gone
-    yesBtn.addEventListener("mousemove", () => {
-    function fleeYes() {
-      if (!noAlive) return;
-      randomMove(yesBtn, 120);
-    });
-      randomMove(yesBtn, 140);
-    }
-
-    yesBtn.addEventListener("mouseenter", fleeYes);
-    yesBtn.addEventListener("mousemove", fleeYes);
-    yesBtn.addEventListener("pointerenter", fleeYes);
-    yesBtn.addEventListener("touchstart", fleeYes, { passive: true });
-
-    yesBtn.addEventListener("click", (e) => {
-      if (noAlive) {
-        e.preventDefault();
-        randomMove(yesBtn, 140);
-        randomMove(yesBtn, 160);
-        return;
-      }
-      window.location.href = "fireworks.html";
     });
   </script>
 
