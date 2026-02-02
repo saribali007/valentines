@@ -2,32 +2,35 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Proposal 💍</title>
+
+  <!-- Main stylesheet -->
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body class="proposal-page">
 
-  <!-- Background image container -->
-  <div class="bg"></div>
+  <!-- Fullscreen background image -->
+  <div class="bg" aria-hidden="true"></div>
 
-  <!-- Main content -->
-  <div class="floating-content">
+  <!-- Content overlay -->
+  <main class="floating-content">
     <h1>Haniya ❤️</h1>
     <h2>Will you be my Valentine?</h2>
 
     <p>
-      From that moment to every moment after…  
+      From that moment to every moment after…<br>
       I still choose you. Every single time.
     </p>
 
     <div class="buttons">
-      <button id="yesBtn">Yes 💖</button>
-      <button id="noBtn">No 😢</button>
+      <button id="yesBtn" type="button">Yes 💖</button>
+      <button id="noBtn" type="button">No 😢</button>
     </div>
-  </div>
+  </main>
 
-  <!-- JavaScript -->
+  <!-- Interaction logic -->
   <script>
     // YES → fireworks page
     document.getElementById("yesBtn").addEventListener("click", () => {
@@ -36,8 +39,7 @@
 
     // NO → playful vanish
     document.getElementById("noBtn").addEventListener("click", () => {
-      const noBtn = document.getElementById("noBtn");
-      noBtn.classList.add("burst");
+      document.getElementById("noBtn").classList.add("burst");
     });
   </script>
 
