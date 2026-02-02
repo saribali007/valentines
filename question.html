@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Question 💌</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="soft-bg">
+
+<h1>Will you be my Valentine? 💖</h1>
+
+<div class="buttons">
+  <button id="yes">Yes 💘</button>
+  <button id="no">No 🙄</button>
+</div>
+
+<p id="message"></p>
+
+<script>
+let noClicks = 0;
+const noMessages = [
+  "Are you sure? 😏",
+  "Think again 👀",
+  "That button looks tired...",
+  "You really want to say no?",
+  "Last chance 😌"
+];
+
+document.getElementById("no").onclick = () => {
+  if (noClicks < noMessages.length) {
+    document.getElementById("message").innerText = noMessages[noClicks];
+    moveButton("no");
+    moveButton("yes");
+    noClicks++;
+  } else {
+    document.getElementById("message").innerText = "Fine… now choose wisely 💖";
+    document.getElementById("yes").onclick = () => {
+      window.location.href = "fireworks.html";
+    };
+  }
+};
+
+function moveButton(id) {
+  const btn = document.getElementById(id);
+  btn.style.position = "absolute";
+  btn.style.left = Math.random() * 80 + "%";
+  btn.style.top = Math.random() * 80 + "%";
+}
+</script>
+
+</body>
+</html>
