@@ -258,3 +258,13 @@ body.question-page {
     flex-direction: column;
   }
 }
+/* FORCE BUTTONS TO BE CLICKABLE */
+.buttons {
+  z-index: 9999;
+}
+
+#yesBtn,
+#noBtn {
+  z-index: 10000;
+  pointer-events: auto;
+}
