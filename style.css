@@ -13,8 +13,8 @@ body {
 
   background-image:
     linear-gradient(
-      rgba(255, 240, 246, 0.88),
-      rgba(255, 240, 246, 0.88)
+      rgba(255, 228, 238, 0.92),
+      rgba(255, 228, 238, 0.92)
     ),
     url("images/background.jpg");
 
@@ -44,7 +44,7 @@ body {
   box-shadow: 0 30px 70px rgba(0, 0, 0, 0.18);
 
   /* THIS is what moves it to the right */
-  transform: translateX(-25%);
+  transform: translateX(-37%);
 }
 
 /* TITLE */
