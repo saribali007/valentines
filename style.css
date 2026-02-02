@@ -164,4 +164,16 @@ button:hover {
   100% { transform: translateX(0); }
 }
 
+body.login-bg {
+  background-image:
+    linear-gradient(
+      rgba(255, 240, 246, 0.88),
+      rgba(255, 240, 246, 0.88)
+    ),
+    url("images/background.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+}
 
