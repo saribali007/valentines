@@ -120,14 +120,14 @@ body.login-bg {
 }
 
 /* =========================
-   QUESTION PAGE (CLEAN + SAFE)
+   Proposal PAGE (CLEAN + SAFE)
 ========================= */
 
 /* =========================
-   QUESTION PAGE (FINAL)
+   Proposal PAGE (FINAL)
 ========================= */
 
-body.question-page {
+body.proposal-page {
   min-height: 100vh;
   font-family: 'Playfair Display', serif;
   background: #000;
@@ -136,7 +136,7 @@ body.question-page {
 }
 
 /* BACKGROUND IMAGE (NON-INTERACTIVE) */
-.question-page .bg {
+.proposal-page .bg {
   position: absolute;
   top: 0;
   left: 0;
@@ -153,7 +153,7 @@ body.question-page {
 }
 
 /* DARK OVERLAY (VISUAL ONLY) */
-.question-page::before {
+.proposal-page::before {
   content: "";
   position: absolute;
   top: 0;
@@ -293,7 +293,7 @@ body.question-page {
    FIX CLICK BLOCKING
 ========================= */
 
-.question-page::before {
+.proposal-page::before {
   pointer-events: none;
 }
 
