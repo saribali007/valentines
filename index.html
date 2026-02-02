@@ -6,7 +6,8 @@
   <link rel="stylesheet" href="style.css">
 </head>
 
-<body class="login-bg">
+<!-- IMPORTANT: this class controls the background -->
+<body class="login-page">
 
   <div class="login-card">
     <h1>🔐 Enter the Secret Password</h1>
@@ -15,7 +16,7 @@
     <input 
       type="password" 
       id="password" 
-      placeholder="Type gently… 💗"
+      placeholder="Guess the password or play the game 💗"
     >
 
     <button onclick="checkPassword()">Enter 💖</button>
@@ -23,20 +24,21 @@
     <p id="error" class="error-text"></p>
   </div>
 
-<script>
-function checkPassword() {
-  const pass = document.getElementById("password").value;
-  const error = document.getElementById("error");
+  <script>
+    function checkPassword() {
+      const pass = document.getElementById("password").value;
+      const error = document.getElementById("error");
 
-  if (pass === "slubbyservesqueen") {
-    window.location.href = "question.html";
-  } else {
-    error.innerText = "❌ Wrong password… play the scavenger hunt to unlock it 😌";
-    error.classList.add("shake");
-  }
-}
-</script>
+      if (pass === "slubbyservesqueen") {
+        window.location.href = "question.html";
+      } else {
+        error.innerText = "❌ Wrong password… play the scavenger hunt to unlock it 😌";
+        error.classList.remove("shake");
+        void error.offsetWidth; // reset animation
+        error.classList.add("shake");
+      }
+    }
+  </script>
 
 </body>
 </html>
-
