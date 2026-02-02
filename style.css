@@ -7,15 +7,14 @@
   box-sizing: border-box;
 }
 
-/* BODY */
-body {
+/* LOGIN PAGE ONLY */
+body.login-page {
   min-height: 100vh;
 
-  /* IMAGE FIRST, VERY LIGHT PINK TINT */
   background-image:
     linear-gradient(
-      rgba(255, 235, 242, 0.38),
-      rgba(255, 235, 242, 0.38)
+      rgba(255, 235, 242, 0.28),
+      rgba(255, 235, 242, 0.28)
     ),
     url("images/background.jpg");
 
@@ -27,7 +26,7 @@ body {
   align-items: center;
   justify-content: flex-start;
 
-  font-family: 'Playfair Display', serif;
+  font-family: 'Playfair Display', serif
 }
 
 /* LOGIN CARD */
