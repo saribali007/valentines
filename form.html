@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tell Me 💕</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="soft-bg">
+
+<h1>How do you want Valentine’s Day to be? 💖</h1>
+
+<form onsubmit="goNext(event)">
+  <label>What should we do?</label>
+  <input type="text" required>
+
+  <label>Dinner or Stay In?</label>
+  <input type="text">
+
+  <label>Anything you want from me?</label>
+  <textarea></textarea>
+
+  <button type="submit">Submit 💘</button>
+</form>
+
+<script>
+function goNext(e) {
+  e.preventDefault();
+  window.location.href = "timeline.html";
+}
+</script>
+
+</body>
+</html>
