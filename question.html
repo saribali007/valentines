@@ -30,6 +30,7 @@
   <!-- SCRIPT -->
   <script>
     alert("QUESTION PAGE JS LOADED");
+
     document.addEventListener("DOMContentLoaded", () => {
 
       const yesBtn = document.getElementById("yesBtn");
@@ -74,7 +75,7 @@
         el.style.top = `${y}px`;
       }
 
-      /* NO BUTTON LOGIC */
+      /* NO BUTTON */
       noBtn.addEventListener("click", () => {
         if (!noAlive) return;
 
@@ -97,7 +98,7 @@
         }
       });
 
-      /* YES RUNS AWAY UNTIL NO IS DEAD */
+      /* YES RUNS AWAY */
       function fleeYes() {
         if (!noAlive) return;
         moveRandom(yesBtn, 160);
@@ -107,7 +108,6 @@
       yesBtn.addEventListener("mousemove", fleeYes);
       yesBtn.addEventListener("touchstart", fleeYes, { passive: true });
 
-      /* YES CLICK */
       yesBtn.addEventListener("click", (e) => {
         if (noAlive) {
           e.preventDefault();
@@ -119,8 +119,6 @@
 
     });
   </script>
-alert("QUESTION PAGE JS LOADED");
-</script>
 
 </body>
 </html>
