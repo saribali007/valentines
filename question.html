@@ -25,6 +25,74 @@
       <button id="noBtn" class="no">No 😒</button>
     </div>
   </div>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  const noBtn = document.getElementById("noBtn");
+  const yesBtn = document.getElementById("yesBtn");
+
+  if (!noBtn || !yesBtn) return;
+
+  const messages = [
+    "what the fuck?",
+    "you for real?",
+    "nah 😒",
+    "go press YES",
+    "WRONG BUTTON",
+    "LAST WARNING 😡"
+  ];
+
+  let clicks = 0;
+  let noAlive = true;
+
+  function randomMove(el, range = 160) {
+    const x = Math.random() * range - range / 2;
+    const y = Math.random() * range - range / 2;
+    el.style.transform = `translate(${x}px, ${y}px)`;
+  }
+
+  // NO CLICK
+  noBtn.addEventListener("click", () => {
+    if (!noAlive) return;
+
+    randomMove(noBtn);
+
+    if (clicks < messages.length) {
+      noBtn.textContent = messages[clicks];
+    }
+
+    const red = Math.min(255, 100 + clicks * 35);
+    noBtn.style.background = `rgb(${red}, 40, 40)`;
+    noBtn.style.color = "white";
+
+    clicks++;
+
+    if (clicks === messages.length) {
+      noAlive = false;
+      noBtn.classList.add("burst");
+
+      setTimeout(() => {
+        noBtn.remove();
+      }, 600);
+    }
+  });
+
+  // YES RUNS AWAY UNTIL NO IS GONE
+  yesBtn.addEventListener("mouseenter", () => {
+    if (!noAlive) return;
+    randomMove(yesBtn, 120);
+  });
+
+  // LOCK YES CLICK
+  yesBtn.addEventListener("click", (e) => {
+    if (noAlive) {
+      e.preventDefault();
+      randomMove(yesBtn, 140);
+    }
+  });
+
+});
+</script>
 
 </body>
 </html>
