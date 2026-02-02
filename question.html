@@ -25,11 +25,8 @@
     </p>
 
     <div class="buttons">
-      <div class="buttons">
-        <button id="yesBtn">Yes 💕</button>
-        <button id="noBtn">No 😒</button>
-      </div>
-
+      <button id="yesBtn">Yes 💕</button>
+      <button id="noBtn">No 😒</button>
     </div>
   </div>
 
@@ -47,14 +44,52 @@
       "nah 😒",
       "go press YES",
       "WRONG BUTTON",
-      "LAST WARNING 😡"
+      "last warning 😡",
+      "stop playing",
+      "ok bye 💥"
     ];
 
-    function randomMove(el, range = 160) {
-      const x = Math.random() * range - range / 2;
-      const y = Math.random() * range - range / 2;
-      el.style.transform = `translate(${x}px, ${y}px)`;
+    function clamp(value, min, max) {
+      return Math.min(Math.max(value, min), max);
     }
+
+    function setFixedPosition(el) {
+      const rect = el.getBoundingClientRect();
+      el.style.position = "fixed";
+      el.style.left = `${rect.left}px`;
+      el.style.top = `${rect.top}px`;
+      el.classList.add("free");
+    }
+
+    function ensureFree(el) {
+      if (!el.classList.contains("free")) {
+        setFixedPosition(el);
+      }
+    }
+
+    function randomMove(el, range = 160) {
+      ensureFree(el);
+      const rect = el.getBoundingClientRect();
+      const padding = 16;
+      const x = rect.left + (Math.random() * range - range / 2);
+      const y = rect.top + (Math.random() * range - range / 2);
+      const clampedX = clamp(x, padding, window.innerWidth - rect.width - padding);
+      const clampedY = clamp(y, padding, window.innerHeight - rect.height - padding);
+      el.style.left = `${clampedX}px`;
+      el.style.top = `${clampedY}px`;
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      requestAnimationFrame(() => {
+        setFixedPosition(yesBtn);
+        setFixedPosition(noBtn);
+      });
+    });
+
+    window.addEventListener("resize", () => {
+      ensureFree(yesBtn);
+      ensureFree(noBtn);
+    });
 
     // NO button logic
     noBtn.addEventListener("click", () => {
@@ -80,16 +115,23 @@
     });
 
     // YES runs away until NO is gone
-    yesBtn.addEventListener("mousemove", () => {
+    function fleeYes() {
       if (!noAlive) return;
-      randomMove(yesBtn, 120);
-    });
+      randomMove(yesBtn, 140);
+    }
+
+    yesBtn.addEventListener("mouseenter", fleeYes);
+    yesBtn.addEventListener("mousemove", fleeYes);
+    yesBtn.addEventListener("pointerenter", fleeYes);
+    yesBtn.addEventListener("touchstart", fleeYes, { passive: true });
 
     yesBtn.addEventListener("click", (e) => {
       if (noAlive) {
         e.preventDefault();
-        randomMove(yesBtn, 140);
+        randomMove(yesBtn, 160);
+        return;
       }
+      window.location.href = "fireworks.html";
     });
   </script>
 
