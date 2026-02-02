@@ -8,23 +8,29 @@
 
 <body class="question-page">
 
-  <h1>Question Page Loaded</h1>
+  <!-- BACKGROUND IMAGE -->
+  <div class="bg"></div>
 
-  <button id="yesBtn">YES</button>
-  <button id="noBtn">NO</button>
+  <!-- CONTENT -->
+  <div class="floating-content">
+    <h1>Will you be my Valentine? 💖</h1>
+
+    <div class="buttons">
+      <button id="yesBtn">YES</button>
+      <button id="noBtn">NO</button>
+    </div>
+  </div>
 
   <script>
-    alert("JS IS RUNNING");
-
     const yesBtn = document.getElementById("yesBtn");
     const noBtn  = document.getElementById("noBtn");
 
     yesBtn.addEventListener("click", () => {
-      alert("YES CLICKED");
+      window.location.href = "fireworks.html";
     });
 
     noBtn.addEventListener("click", () => {
-      alert("NO CLICKED");
+      noBtn.classList.add("burst");
     });
   </script>
 
