@@ -261,3 +261,19 @@ button {
     flex-direction: column;
   }
 }
+/* NO button burst animation */
+@keyframes burst {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.6); opacity: 0.8; }
+  100% { transform: scale(2.5); opacity: 0; }
+}
+
+.no.burst {
+  animation: burst 0.6s ease forwards;
+}
+
+/* YES running away */
+.yes.runaway {
+  transition: transform 0.2s ease;
+}
+
