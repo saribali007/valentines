@@ -2,50 +2,59 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Question 💌</title>
+  <title>For Haniya 💖</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body class="soft-bg">
 
-<h1>Will you be my Valentine? 💖</h1>
+<h1>❤️ Haniya ❤️</h1>
+<h1>Will you be my Valentine?</h1>
+<p class="subtitle">Every moment with you feels like a dream come true…</p>
 
-<div class="buttons">
-  <button id="yes">Yes 💘</button>
-  <button id="no">No 🙄</button>
+<div style="margin-top:40px;">
+  <button id="yes">Yes 💖</button>
+  <button id="no" style="background:#fff;color:#ff4f8b;margin-left:15px;">
+    No 😒
+  </button>
 </div>
 
-<p id="message"></p>
+<div id="message" class="bubble" style="display:none;"></div>
 
 <script>
 let noClicks = 0;
-const noMessages = [
-  "Are you sure? 😏",
-  "Think again 👀",
-  "That button looks tired...",
-  "You really want to say no?",
-  "Last chance 😌"
+const messages = [
+  "Really? 😏",
+  "Try again 💕",
+  "You can’t escape love 💘",
+  "Stop lying to yourself 😌",
+  "Okay okay… last chance 😈"
 ];
 
-document.getElementById("no").onclick = () => {
-  if (noClicks < noMessages.length) {
-    document.getElementById("message").innerText = noMessages[noClicks];
-    moveButton("no");
-    moveButton("yes");
-    noClicks++;
-  } else {
-    document.getElementById("message").innerText = "Fine… now choose wisely 💖";
-    document.getElementById("yes").onclick = () => {
+const noBtn = document.getElementById("no");
+const yesBtn = document.getElementById("yes");
+const msg = document.getElementById("message");
+
+noBtn.onclick = () => {
+  msg.style.display = "block";
+  msg.innerText = messages[noClicks] || "Fine… now click YES 💖";
+
+  noBtn.style.position = "absolute";
+  noBtn.style.left = Math.random() * 70 + "%";
+  noBtn.style.top = Math.random() * 70 + "%";
+
+  yesBtn.style.position = "absolute";
+  yesBtn.style.left = Math.random() * 70 + "%";
+  yesBtn.style.top = Math.random() * 70 + "%";
+
+  noClicks++;
+
+  if (noClicks > messages.length) {
+    yesBtn.onclick = () => {
       window.location.href = "fireworks.html";
     };
   }
 };
-
-function moveButton(id) {
-  const btn = document.getElementById(id);
-  btn.style.position = "absolute";
-  btn.style.left = Math.random() * 80 + "%";
-  btn.style.top = Math.random() * 80 + "%";
-}
 </script>
 
 </body>
