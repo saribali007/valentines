@@ -8,8 +8,12 @@
 
 <body class="question-page">
 
-  <div class="bg"></div>
+  <!-- IMAGE SECTION -->
+  <div class="question-hero">
+    <div class="overlay"></div>
+  </div>
 
+  <!-- CONTENT -->
   <div class="floating-content">
     <h1>Haniya ❤️</h1>
 
@@ -21,78 +25,70 @@
     </p>
 
     <div class="buttons">
-      <<button id="yesBtn">Yes 💕</button>
+      <button id="yesBtn">Yes 💕</button>
       <button id="noBtn">No 😒</button>
     </div>
   </div>
-<script>
-document.addEventListener("DOMContentLoaded", () => {
 
-  const noBtn = document.getElementById("noBtn");
-  const yesBtn = document.getElementById("yesBtn");
+  <!-- SCRIPT -->
+  <script>
+    const noBtn = document.getElementById("noBtn");
+    const yesBtn = document.getElementById("yesBtn");
 
-  if (!noBtn || !yesBtn) return;
+    let clicks = 0;
+    let noAlive = true;
 
-  const messages = [
-    "what the fuck?",
-    "you for real?",
-    "nah 😒",
-    "go press YES",
-    "WRONG BUTTON",
-    "LAST WARNING 😡"
-  ];
+    const messages = [
+      "what the fuck?",
+      "you for real?",
+      "nah 😒",
+      "go press YES",
+      "WRONG BUTTON",
+      "LAST WARNING 😡"
+    ];
 
-  let clicks = 0;
-  let noAlive = true;
-
-  function randomMove(el, range = 160) {
-    const x = Math.random() * range - range / 2;
-    const y = Math.random() * range - range / 2;
-    el.style.transform = `translate(${x}px, ${y}px)`;
-  }
-
-  // NO CLICK
-  noBtn.addEventListener("click", () => {
-    if (!noAlive) return;
-
-    randomMove(noBtn);
-
-    if (clicks < messages.length) {
-      noBtn.textContent = messages[clicks];
+    function randomMove(el, range = 160) {
+      const x = Math.random() * range - range / 2;
+      const y = Math.random() * range - range / 2;
+      el.style.transform = `translate(${x}px, ${y}px)`;
     }
 
-    const red = Math.min(255, 100 + clicks * 35);
-    noBtn.style.background = `rgb(${red}, 40, 40)`;
-    noBtn.style.color = "white";
+    // NO button logic
+    noBtn.addEventListener("click", () => {
+      if (!noAlive) return;
 
-    clicks++;
+      randomMove(noBtn);
 
-    if (clicks === messages.length) {
-      noAlive = false;
-      noBtn.classList.add("burst");
+      if (clicks < messages.length) {
+        noBtn.textContent = messages[clicks];
+      }
 
-      setTimeout(() => {
-        noBtn.remove();
-      }, 600);
-    }
-  });
+      const red = Math.min(255, 100 + clicks * 35);
+      noBtn.style.background = `rgb(${red}, 40, 40)`;
+      noBtn.style.color = "white";
 
-  // YES RUNS AWAY UNTIL NO IS GONE
-  yesBtn.addEventListener("mousemove", () => {
-    if (!noAlive) return;
-    randomMove(yesBtn, 120);
-  });
+      clicks++;
 
-  // LOCK YES CLICK
-  yesBtn.addEventListener("click", (e) => {
-    if (noAlive) {
-      e.preventDefault();
-      randomMove(yesBtn, 140);
-    }
-  });
+      if (clicks === messages.length) {
+        noAlive = false;
+        noBtn.classList.add("burst");
+        setTimeout(() => noBtn.remove(), 600);
+      }
+    });
 
-});
-</script>
+    // YES runs away until NO is gone
+    yesBtn.addEventListener("mousemove", () => {
+      if (!noAlive) return;
+      randomMove(yesBtn, 120);
+    });
+
+    yesBtn.addEventListener("click", (e) => {
+      if (noAlive) {
+        e.preventDefault();
+        randomMove(yesBtn, 140);
+      }
+    });
+  </script>
 
 </body>
 </html>
