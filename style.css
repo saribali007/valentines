@@ -139,114 +139,125 @@ body.login-bg {
 }
 
 /* =========================
-   CINEMATIC VALENTINE PAGE
+   FUN + ROMANTIC QUESTION PAGE
 ========================= */
 
 .question-page {
-    margin: 0;
-    background: black;
+  min-height: 100vh;
+  overflow: hidden;
+  font-family: 'Playfair Display', serif;
 }
 
-/* Full-screen hero */
-.question-page .hero {
-    position: relative;
-    min-height: 100vh;
-    background-image: url("images/proposal.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+/* FULL BACKGROUND IMAGE */
+.question-page .bg {
+  position: fixed;
+  inset: 0;
+  background-image: url("/valentines/images/proposal.jpg");
+  background-size: cover;
+  background-position: center;
+  filter: blur(2px) brightness(0.8);
+  transform: scale(1.05);
+  z-index: -2;
 }
 
-/* Soft cinematic overlay */
-.question-page .hero-overlay {
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(
-        circle at center,
-        rgba(0,0,0,0.35),
-        rgba(0,0,0,0.85)
-    );
+/* SOFT OVERLAY */
+.question-page::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 120, 170, 0.25),
+    rgba(0, 0, 0, 0.75)
+  );
+  z-index: -1;
 }
 
-/* Text block */
-.question-page .hero-text {
-    position: relative;
-    z-index: 2;
-    min-height: 100vh;
-    max-width: 640px;
-    padding: 80px 70px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    color: #f6f6f6;
+/* FLOATING TEXT (NO BOX) */
+.floating-content {
+  min-height: 100vh;
+  padding: 60px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
 }
 
-/* Typography */
-.question-page h1 {
-    font-size: 3.4rem;
-    color: #ff5a76;
-    margin-bottom: 12px;
-    letter-spacing: 1px;
+/* TEXT STYLES */
+.floating-content h1 {
+  font-size: 3.6rem;
+  color: #ff6b9c;
+  margin-bottom: 10px;
 }
 
-.question-page h2 {
-    font-size: 2.1rem;
-    font-weight: 400;
-    margin-bottom: 22px;
+.floating-content h2 {
+  font-size: 2.2rem;
+  font-weight: 400;
+  margin-bottom: 20px;
 }
 
-.question-page p {
-    font-size: 1.25rem;
-    line-height: 1.9;
-    color: #eaeaea;
-    margin-bottom: 48px;
+.floating-content p {
+  font-size: 1.25rem;
+  max-width: 520px;
+  line-height: 1.8;
+  margin-bottom: 45px;
+  color: #f3f3f3;
 }
 
-/* Buttons */
-.question-page .hero-buttons {
-    display: flex;
-    gap: 22px;
+/* BUTTONS — CUTE & PLAYFUL */
+.buttons {
+  display: flex;
+  gap: 24px;
 }
 
-.question-page button {
-    padding: 16px 40px;
-    border-radius: 50px;
-    font-size: 1.15rem;
-    border: none;
-    cursor: pointer;
-    transition: all 0.35s ease;
+button {
+  padding: 16px 44px;
+  font-size: 1.15rem;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.35s ease;
+  font-family: 'Poppins', sans-serif;
 }
 
-/* Yes */
-.question-page .yes {
-    background: #ff5a76;
-    color: white;
+/* YES BUTTON */
+.yes {
+  background: linear-gradient(135deg, #ff5f9e, #ff85b3);
+  color: white;
+  box-shadow: 0 15px 40px rgba(255, 95, 158, 0.55);
 }
 
-.question-page .yes:hover {
-    transform: scale(1.08);
-    background: #ff2f55;
+.yes:hover {
+  transform: scale(1.12) rotate(-2deg);
 }
 
-/* No */
-.question-page .no {
-    background: rgba(255,255,255,0.85);
-    color: #222;
+/* NO BUTTON (FUN) */
+.no {
+  background: white;
+  color: #333;
 }
 
-.question-page .no:hover {
-    transform: translateX(18px);
+.no:hover {
+  transform: translateX(25px) rotate(3deg);
 }
 
-/* Mobile */
+/* MOBILE */
 @media (max-width: 768px) {
-    .question-page .hero-text {
-        padding: 60px 30px;
-        text-align: center;
-    }
+  .floating-content h1 {
+    font-size: 2.8rem;
+  }
 
-    .question-page .hero-buttons {
-        justify-content: center;
-        flex-wrap: wrap;
-    }
+  .floating-content h2 {
+    font-size: 1.7rem;
+  }
+
+  .floating-content p {
+    font-size: 1.1rem;
+  }
+
+  .buttons {
+    flex-direction: column;
+  }
 }
