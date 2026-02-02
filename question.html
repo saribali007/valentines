@@ -14,11 +14,6 @@
     <h1>Haniya ❤️</h1>
     <h2>Will you be my Valentine?</h2>
 
-    <p>
-      From that moment to every moment after…  
-      I still choose you. Every single time.
-    </p>
-
     <div class="buttons">
       <button id="yesBtn">Yes 💖</button>
       <button id="noBtn">No 😢</button>
@@ -26,16 +21,15 @@
   </div>
 
   <script>
-    const yesBtn = document.getElementById("yesBtn");
-    const noBtn  = document.getElementById("noBtn");
+    alert("JS LOADED");
 
-    yesBtn.addEventListener("click", () => {
+    document.getElementById("yesBtn").onclick = () => {
       window.location.href = "fireworks.html";
-    });
+    };
 
-    noBtn.addEventListener("click", () => {
-      noBtn.classList.add("burst");
-    });
+    document.getElementById("noBtn").onclick = () => {
+      alert("NO CLICKED");
+    };
   </script>
 
 </body>
