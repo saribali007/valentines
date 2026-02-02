@@ -20,16 +20,17 @@
     </div>
   </div>
 
+  <!-- JS MUST BE HERE -->
   <script>
     alert("JS LOADED");
 
-    document.getElementById("yesBtn").onclick = () => {
+    document.getElementById("yesBtn").addEventListener("click", () => {
       window.location.href = "fireworks.html";
-    };
+    });
 
-    document.getElementById("noBtn").onclick = () => {
+    document.getElementById("noBtn").addEventListener("click", () => {
       alert("NO CLICKED");
-    };
+    });
   </script>
 
 </body>
