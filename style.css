@@ -138,3 +138,109 @@ body.login-bg {
   color: #c0392b;
 }
 
+/* =========================
+   QUESTION / VALENTINE PAGE
+   (SAFE – DOES NOT TOUCH LOGIN)
+========================= */
+
+.question-page {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #1a1a1a, #2b2b2b);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+}
+
+.question-page .card {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    max-width: 900px;
+    width: 100%;
+    display: flex;
+    gap: 30px;
+    padding: 25px;
+    backdrop-filter: blur(10px);
+}
+
+.question-page .photo {
+    width: 45%;
+    max-height: 420px;
+    border-radius: 15px;
+    object-fit: cover;
+}
+
+.question-page .content {
+    flex: 1;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.question-page h1 {
+    color: #ff4d6d;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.question-page h2 {
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+}
+
+.question-page p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    color: #f2f2f2;
+}
+
+.question-page .buttons {
+    display: flex;
+    gap: 20px;
+}
+
+.question-page button {
+    padding: 14px 32px;
+    font-size: 1rem;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.question-page .yes {
+    background: #ff4d6d;
+    color: white;
+}
+
+.question-page .yes:hover {
+    background: #ff1f4b;
+    transform: scale(1.1);
+}
+
+.question-page .no {
+    background: white;
+    color: #333;
+}
+
+.question-page .no:hover {
+    transform: translateX(20px);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .question-page .card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .question-page .photo {
+        width: 100%;
+    }
+
+    .question-page .buttons {
+        justify-content: center;
+    }
+}
