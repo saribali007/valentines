@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>For My Queen 💖</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="login-bg">
+
+  <div class="login-box">
+    <h1>🔐 Enter the Secret Password</h1>
+    <input type="password" id="password" placeholder="Password">
+    <button onclick="checkPassword()">Enter</button>
+    <p id="error"></p>
+  </div>
+
+<script>
+function checkPassword() {
+  const pass = document.getElementById("password").value;
+  if (pass === "slubbyservesqueen") {
+    window.location.href = "question.html";
+  } else {
+    document.getElementById("error").innerText = "Wrong password 😤";
+  }
+}
+</script>
+
+</body>
+</html>
